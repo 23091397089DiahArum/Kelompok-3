@@ -28,3 +28,34 @@ def DisplayMenu():
     while current is not None:
         print(current.NamaMenu + " Rp." + str(current.Harga))
         current = current.next
+
+#Menampilkan informasi selamat datang dan daftar menu
+print("\nSelamat Datang di Warung D4 MIE")
+print("Ice Cream dan Mie Pedas tersedia di warung ini!!\n")
+print("DAFTAR MENU WARUNG D4 MIE \n")
+
+#Menambahkan menu ke dalam daftar
+addMenuItem("Mixue Ice Cream", 5000)
+addMenuItem("Boba Shake", 16000)
+addMenuItem("Mi Sundae", 14000)
+addMenuItem("Mie Ganas", 11000)
+addMenuItem("Creamy Mango Boba", 22000)
+
+#Menampilkan daftar menu
+DisplayMenu()
+
+#Inisialisasi variabel untuk pesanan
+MaxPesanan = 10
+pesanan = [""] * MaxPesanan
+harga = [0] * MaxPesanan
+Jml_Pesanan = 0
+
+#Memulai loop untuk menerima pesanan dari pengguna
+while True:
+    order = input("\nSilahkan ketik pesanan Anda: ")
+    if order == "done":
+        break
+    print("----")
+    print("Ketik 'done' untuk step berikutnya")
+    print("======")
+    print("||>> " + order + " sudah ditambahkan ke keranjang ||")
