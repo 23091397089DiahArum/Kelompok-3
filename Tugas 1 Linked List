@@ -1,0 +1,30 @@
+#Mendefinisikan class MenuItem
+class MenuItem:
+    def __init__(self, NamaMenu, Harga):
+        self.NamaMenu = NamaMenu
+        self.Harga = Harga
+        self.next = None
+
+#Inisialisasi head, tail, dan current
+head = None
+tail = None
+current = None
+
+#fungsi addMenuItem untuk menambahkan menu item ke dalam daftar
+def addMenuItem(NamaMenu, Harga):
+    global head, tail, current
+    newItem = MenuItem(NamaMenu, Harga)
+    if head is None:
+        head = newItem
+        tail = newItem
+        current = newItem
+    else:
+        tail.next = newItem
+        tail = newItem
+
+#Fungsi untuk menampilkan daftar menu
+def DisplayMenu():
+    current = head
+    while current is not None:
+        print(current.NamaMenu + " Rp." + str(current.Harga))
+        current = current.next
