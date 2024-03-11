@@ -67,7 +67,7 @@ while True:
             pesanan[Jml_Pesanan] = current.NamaMenu
             harga[Jml_Pesanan] = current.Harga
             Jml_Pesanan += 1
-            break
+            break 
         current = current.next
 
 #Menampilkan pesanan yang telah dibuat oleh pengguna
