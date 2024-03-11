@@ -59,3 +59,23 @@ while True:
     print("Ketik 'done' untuk step berikutnya")
     print("======")
     print("||>> " + order + " sudah ditambahkan ke keranjang ||")
+#Mencari menu yang sesuai dengan pesanan pengguna
+    current = head
+    while current is not None:
+        if current.NamaMenu == order:
+            pesanan[Jml_Pesanan] = current.NamaMenu
+            harga[Jml_Pesanan] = current.Harga
+            Jml_Pesanan += 1
+            break
+        current = current.next
+
+#Menampilkan pesanan yang telah dibuat oleh pengguna
+print("\n|| Pesanan Anda ||")
+for i in range(Jml_Pesanan):
+    print(pesanan[i] + " Rp." + str(harga[i]))
+
+#Menampilkan total harga pesanan pengguna
+print("Total harga pesanan Anda: Rp.", sum(harga))
+
+#Menampilkan informasi terima kasih
+print("\nTerima Kasih sudah memesan di Warung Kami------\n")
