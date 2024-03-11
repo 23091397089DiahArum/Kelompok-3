@@ -1,4 +1,4 @@
-#Mendefinisikan class MenuIte
+#Mendefinisikan class MenuItem
 class MenuItem:
     def __init__(self, NamaMenu, Harga):
         self.NamaMenu = NamaMenu
