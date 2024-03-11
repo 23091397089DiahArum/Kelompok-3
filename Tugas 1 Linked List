@@ -59,6 +59,7 @@ while True:
     print("Ketik 'done' untuk step berikutnya")
     print("======")
     print("||>> " + order + " sudah ditambahkan ke keranjang ||")
+
 #Mencari menu yang sesuai dengan pesanan pengguna
     current = head
     while current is not None:
