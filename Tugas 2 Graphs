@@ -84,7 +84,7 @@ petaJawaBarat = Peta()
 kota_list = ["Bogor", "Cibinong", "Sukabumi", "Bandung", "Subang", "Sumedang", "Indramayu", "Tasikmalaya", "Cirebon", "Kuningan"]
 
 for kota in kota_list:
-    petaJawaBarat.tambahkanKota(kota)
+    petaJawaBarat.tambahkanKota(kota) 
 
 petaJawaBarat.tambahkanJalan("Bogor", "Cibinong")
 petaJawaBarat.tambahkanJalan("Bogor", "Sukabumi")
