@@ -53,3 +53,50 @@ class Peta:
             print("5. Tampilkan Semua Kota")
             print("6. Tampilkan Semua Jalan")
             print("7. Keluar")
+
+            pilihan = input("Masukkan nomor pilihan menu Anda: ")
+
+            if pilihan == "1":
+                kota_baru = input("Masukkan nama kota baru: ")
+                self.tambahkanKota(kota_baru)
+            elif pilihan == "2":
+                kota_dihapus = input("Masukkan nama kota yang akan dihapus: ")
+                self.hapusKota(kota_dihapus)
+            elif pilihan == "3":
+                kota1 = input("Masukkan nama kota pertama: ")
+                kota2 = input("Masukkan nama kota kedua: ")
+                self.tambahkanJalan(kota1, kota2)
+            elif pilihan == "4":
+                kota1 = input("Masukkan nama kota pertama: ")
+                kota2 = input("Masukkan nama kota kedua: ")
+                self.hapusJalan(kota1, kota2)
+            elif pilihan == "5":
+                self.tampilkan_semua_kota()
+            elif pilihan == "6":
+                self.tampilkan_semua_jalan()
+            elif pilihan == "7":
+                print("Terima Kasih!")
+                break
+            else:
+                print("Pilihan tidak valid. Silakan pilih kembali")
+
+petaJawaBarat = Peta()
+kota_list = ["Bogor", "Cibinong", "Sukabumi", "Bandung", "Subang", "Sumedang", "Indramayu", "Tasikmalaya", "Cirebon", "Kuningan"]
+
+for kota in kota_list:
+    petaJawaBarat.tambahkanKota(kota)
+
+petaJawaBarat.tambahkanJalan("Bogor", "Cibinong")
+petaJawaBarat.tambahkanJalan("Bogor", "Sukabumi")
+petaJawaBarat.tambahkanJalan("Sukabumi", "Bandung")
+petaJawaBarat.tambahkanJalan("Bandung", "Sumedang")
+petaJawaBarat.tambahkanJalan("Sumedang", "Tasikmalaya")
+petaJawaBarat.tambahkanJalan("Tasikmalaya", "Kuningan")
+petaJawaBarat.tambahkanJalan("Kuningan", "Cirebon")
+petaJawaBarat.tambahkanJalan("Cirebon", "Indramayu")
+petaJawaBarat.tambahkanJalan("Indramayu", "Subang")
+petaJawaBarat.tambahkanJalan("Subang", "Cibinong")
+
+petaJawaBarat.menu()
+
+
