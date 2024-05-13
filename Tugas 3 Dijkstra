@@ -3,7 +3,7 @@ from itertools import permutations
 class WeightedGraph :
     
     def _init_(self):
-        self.dataKota = {}
+        self.dataKota = {} 
 
     def printGraph(self):
         for kota in self.dataKota:
