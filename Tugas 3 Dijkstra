@@ -61,3 +61,68 @@ class WeightedGraph :
 
             kotaBelumDikunjungi.remove(kotaTerdekat)
 
+            for tetangga, bobot in self.dataKota[kotaTerdekat].items():
+                jarakBaru = jarakTerpendek + bobot
+                if jarakBaru < jarak[tetangga]:
+                    jarak[tetangga] = jarakBaru
+
+        return jarak
+
+    def tsp(self):
+        jarakTerpendek = float('inf')
+        jalurTerpendek = []
+
+        daftarKota = list(self.dataKota.keys())
+        for jalur in permutations(daftarKota):
+            totalJarak = 0
+            for i in range(len(jalur) - 1):
+                if jalur[i] in self.dataKota and jalur[i + 1] in self.dataKota[jalur[i]]:
+                    totalJarak += self.dataKota[jalur[i]][jalur[i + 1]]
+                else:
+                    totalJarak = float('inf')
+                    break 
+            if totalJarak < jarakTerpendek:
+                jarakTerpendek = totalJarak
+                jalurTerpendek = jalur
+
+        # Tambahkan jarak kembali ke kota awal
+        if jalurTerpendek:
+            jarakTerpendek += self.dataKota[jalurTerpendek[-1]][jalurTerpendek[0]]
+
+        return jalurTerpendek, jarakTerpendek
+
+petaJawaBarat = WeightedGraph()
+
+petaJawaBarat.tambahkanKota("Bogor")
+petaJawaBarat.tambahkanKota("Cibinong")
+petaJawaBarat.tambahkanKota("Sukabumi")
+petaJawaBarat.tambahkanKota("Bandung")
+petaJawaBarat.tambahkanKota("Subang")
+petaJawaBarat.tambahkanKota("Sumedang")
+petaJawaBarat.tambahkanKota("Indramayu")
+petaJawaBarat.tambahkanKota("Tasikmalaya")
+petaJawaBarat.tambahkanKota("Cirebon")
+petaJawaBarat.tambahkanKota("Kuningan")
+
+petaJawaBarat.tambahkanJalan("Bogor", "Cibinong", 14)
+petaJawaBarat.tambahkanJalan("Bogor", "Sukabumi", 64)
+petaJawaBarat.tambahkanJalan("Sukabumi", "Bandung", 94)
+petaJawaBarat.tambahkanJalan("Bandung", "Sumedang", 46)
+petaJawaBarat.tambahkanJalan("Sumedang", "Tasikmalaya", 92)
+petaJawaBarat.tambahkanJalan("Tasikmalaya", "Kuningan", 78)
+petaJawaBarat.tambahkanJalan("Kuningan", "Cirebon", 35)
+petaJawaBarat.tambahkanJalan("Cirebon", "Indramayu", 54)
+petaJawaBarat.tambahkanJalan("Indramayu", "Subang", 88)
+petaJawaBarat.tambahkanJalan("Subang", "Cibinong", 150)
+
+petaJawaBarat.printGraph()
+jarakTerpendek = petaJawaBarat.dijkstra("Bogor")
+print("Jarak terpendek dari Bogor ke kota lain:")
+
+for kota, jarak in jarakTerpendek.items():
+    print(kota, ":", jarak, "km")
+jalurTerpendek, jarakTerpendek = petaJawaBarat.tsp()
+print("Jalur TSP terpendek:", jalurTerpendek)
+print("Jarak TSP terpendek:", jarakTerpendek)
+
+
